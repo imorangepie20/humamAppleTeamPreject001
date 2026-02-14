@@ -247,12 +247,13 @@ const AIModelDemo = () => {
         let msgIndex = 0
         const progressInterval = setInterval(() => {
             if (msgIndex < messages.length) {
+                const msg = messages[msgIndex]
+                msgIndex++
                 setModelResult(prev => ({
                     ...prev,
-                    progress: messages[msgIndex].progress,
-                    message: messages[msgIndex].message
+                    progress: msg.progress,
+                    message: msg.message
                 }))
-                msgIndex++
             }
         }, 500)
 

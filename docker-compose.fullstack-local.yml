@@ -129,6 +129,7 @@ services:
       - ../FAST_API/M3:/app/M3
       - ../FAST_API/LLM:/app/LLM
       - ../FAST_API/QLTY:/app/QLTY
+      - ../FAST_API/DBR:/app/DBR
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s
