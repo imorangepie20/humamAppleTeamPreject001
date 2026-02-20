@@ -35,20 +35,22 @@
 
 ## 2. 저장소 준비
 
-세 레포를 같은 부모 디렉토리에 클론합니다:
+네 레포를 같은 부모 디렉토리에 클론합니다:
 
 ```bash
-mkdir Team_final_project && cd Team_final_project
+mkdir music-space && cd music-space
 
 git clone https://github.com/imorangepie20/humamAppleTeamPreject001.git
+git clone https://github.com/imorangepie20/imapplepieTemplate001.git
 git clone https://github.com/imorangepie20/2TeamFinalProject-PB.git      2TeamFinalProject-BE
 git clone https://github.com/imorangepie20/FAST_API-PB.git               FAST_API
 ```
 
 **최종 디렉토리 구조:**
 ```
-Team_final_project/
+music-space/
 ├── humamAppleTeamPreject001/
+├── imapplepieTemplate001/
 ├── 2TeamFinalProject-BE/
 └── FAST_API/
 ```
@@ -59,7 +61,9 @@ Team_final_project/
 
 Git에 포함되지 않는 DB 스키마, 초기 데이터, 대용량 파일은 아래 Google Drive에서 다운로드 후 직접 배치해야 합니다:
 
-> **https://drive.google.com/drive/folders/1CgLZCJ072jbvc2mOgVJF6xkmYFO0spzH?usp=drive_link**
+> **https://drive.google.com/file/d/1QXrzEbgkd1qmSz8wQ2Hxu9CPLnqm2d2-/view?usp=sharing**
+
+상세 목록은 [DEPLOYMENT_FILES.md](/Users/woosungjo/music-space/DEPLOYMENT_FILES.md)를 참고하세요.
 
 ---
 
@@ -178,23 +182,7 @@ docker compose -f docker-compose.macbook-dockerhub.yml down -v
 
 ---
 
-## 7. 프론트엔드만 업데이트
-
-소스 변경 후 프론트엔드 컨테이너만 빠르게 재배포:
-
-```bash
-./deploy-frontend.sh
-```
-
-스크립트 동작:
-1. git pull (최신 코드)
-2. npm install + npm run build (로컬 빌드 확인용)
-3. 기존 컨테이너 삭제
-4. docker-compose up -d --build (이미지 재빌드)
-
----
-
-## 8. 개발 서버 실행 (Vite Dev)
+## 7. 개발 서버 실행 (Vite Dev)
 
 백엔드 서비스는 Docker로 실행하고, 프론트엔드만 로컬 개발 서버로 실행할 때:
 
@@ -210,7 +198,7 @@ npm run dev
 
 ---
 
-## 9. 도메인 및 포트포워딩
+## 8. 도메인 및 포트포워딩
 
 ### 포트 구성
 
@@ -238,14 +226,14 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --add /usr/bin/docker
 
 ---
 
-## 10. 업데이트 절차
+## 9. 업데이트 절차
 
 ### 프론트엔드 코드 업데이트
 
 ```bash
 cd humamAppleTeamPreject001
 git pull
-./deploy-frontend.sh
+docker compose -f docker-compose.macbook-dockerhub.yml up -d --build frontend
 ```
 
 ### Spring Boot 업데이트
@@ -274,7 +262,7 @@ docker compose -f docker-compose.macbook-dockerhub.yml up -d --build
 
 ---
 
-## 11. 트러블슈팅
+## 10. 트러블슈팅
 
 ### 컨테이너가 시작되지 않음
 

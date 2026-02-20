@@ -78,13 +78,15 @@ MusicSpace는 다수의 스트리밍 플랫폼을 통합하고, 머신러닝 기
 ## 3. 저장소 구조
 
 ```
-Team_final_project/
+music-space/
 ├── humamAppleTeamPreject001/   ← 프론트엔드 (이 레포)
 │   ├── src/                   ← React 소스
 │   ├── server/                ← Node.js Playwright 서버
 │   ├── docs/                  ← 프로젝트 문서 (현재 파일)
 │   ├── nginx.local.conf       ← Nginx 설정
 │   └── docker-compose.*.yml   ← 배포 설정
+│
+├── imapplepieTemplate001/      ← React 어드민 템플릿
 │
 ├── 2TeamFinalProject-BE/       ← Spring Boot 백엔드
 │   └── src/main/java/com/springboot/finalprojcet/
@@ -123,12 +125,6 @@ docker ps
 
 # 로그 확인
 docker compose -f docker-compose.macbook-dockerhub.yml logs -f
-```
-
-### 프론트엔드만 업데이트
-
-```bash
-./deploy-frontend.sh
 ```
 
 ### 접속 URL
